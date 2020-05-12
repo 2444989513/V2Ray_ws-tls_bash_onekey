@@ -307,14 +307,15 @@ v2ray_install() {
     fi
     mkdir -p /root/v2ray
     cd /root/v2ray || exit
-    wget -N --no-check-certificate https://install.direct/go.sh
+    ＃wget -N --no-check-certificate https://install.direct/go.sh
 
     ## wget http://install.direct/go.sh
 
     if [[ -f go.sh ]]; then
         rm -rf $v2ray_systemd_file
         systemctl daemon-reload
-        bash go.sh --force
+        ＃bash go.sh --force
+        bash <(curl -L -s https://raw.githubusercontent.com/2444989513/Backup-v2ray/master/install.sh)
         judge "安装 V2ray"
     else
         echo -e "${Error} ${RedBG} V2ray 安装文件下载失败，请检查下载地址是否可用 ${Font}"
