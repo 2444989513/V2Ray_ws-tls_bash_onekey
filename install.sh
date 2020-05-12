@@ -49,7 +49,7 @@ v2ray_access_log="/var/log/v2ray/access.log"
 v2ray_error_log="/var/log/v2ray/error.log"
 amce_sh_file="/root/.acme.sh/acme.sh"
 ssl_update_file="/usr/bin/ssl_update.sh"
-nginx_version="1.16.1"
+nginx_version="1.17.10"
 openssl_version="1.1.1g"
 jemalloc_version="5.2.1"
 old_config_status="off"
@@ -299,6 +299,11 @@ web_camouflage() {
     judge "web 站点伪装"
 }
 v2ray_install() {
+bash <(curl -L -s https://raw.githubusercontent.com/2444989513/Backup-v2ray/master/install.sh)
+
+}
+
+v2ray_install–a() {
     if [[ -d /root/v2ray ]]; then
         rm -rf /root/v2ray
     fi
